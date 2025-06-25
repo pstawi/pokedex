@@ -1,0 +1,61 @@
+/* Fond général Pokédex */
+body {
+  background-color: #f4f4f4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Titres */
+h1, h2 {
+  color: #d32f2f;
+  font-weight: bold;
+  text-shadow: 1px 1px #00000010;
+}
+
+/* Carte Pokémon */
+.card-hover {
+  border: 2px solid #e53935;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #d32f2f55;
+}
+
+/* Image Pokémon */
+.card-img-top {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Titres des cartes */
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #212121;
+}
+
+/* Barre de recherche */
+input[type="text"] {
+  border: 2px solid #d32f2f;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* Boutons pagination */
+button.btn {
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+/* Détails */
+.progress-bar {
+  background-color: #ef5350;
+}
+
+.progress {
+  height: 20px;
+  border-radius: 10px;
+}
