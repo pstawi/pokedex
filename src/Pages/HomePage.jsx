@@ -37,7 +37,7 @@ function HomePage() {
       />
 
       <div className="d-flex justify-content-between mt-4">
-        <Button onClick={() => setPage(Math.max(0, page - 1))} disabled={page === 0}>
+        <Button onClick={() => setPage(page - 1)} disabled={page === 0}>
           Précédent
         </Button>
         <Button onClick={() => setPage(page + 1)}>
