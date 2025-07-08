@@ -4,12 +4,21 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import typeColors from '../utils/typeColors'
 
+// Composant de carte pour afficher les informations d’un Pokémon
 const PokemonCard = ({ pokeC }) => {
+  // État pour l’image du Pokémon
   const [sprite, setSprite] = useState()
+
+  // État pour le nom français du Pokémon (initialisé avec l'ID ou nom de base)
   const [frenchName, setFrenchName] = useState(pokeC)
+
+  // État pour les statistiques du Pokémon
   const [pokeStats, setPokeStats] = useState([])
+
+  // État pour les types du Pokémon (plante, feu, etc.)
   const [types, setTypes] = useState([])
 
+  // Fonction pour récupérer l’image et les statistiques du Pokémon via l’API
   const fetchImagePokemon = async (pokeC) => {
     try {
       const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeC}`)
@@ -21,6 +30,7 @@ const PokemonCard = ({ pokeC }) => {
     }
   }
 
+  // Fonction pour récupérer le nom français du Pokémon
   const fetchNomFrancais = async (pokeC) => {
     try {
       const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokeC}`)
@@ -31,15 +41,18 @@ const PokemonCard = ({ pokeC }) => {
     }
   }
 
+  // Exécution des fetchs à chaque changement de pokeC (ID ou nom du Pokémon)
   useEffect(() => {
     fetchImagePokemon(pokeC)
     fetchNomFrancais(pokeC)
   }, [pokeC])
 
+  // Couleur de fond déterminée par le type principal du Pokémon
   const mainType = types[0]?.type.name || 'normal'
   const backgroundColor = typeColors[mainType] || '#ccc'
 
   return (
+    // Carte visuelle du Pokémon avec un style basé sur son type
     <Card
       className="text-center shadow card-hover"
       style={{
@@ -49,7 +62,9 @@ const PokemonCard = ({ pokeC }) => {
         border: 'none',
       }}
     >
+      {/* Lien vers la page détaillée du Pokémon */}
       <Link to={`/pokemon/${pokeC}`} className="text-decoration-none text-white">
+        {/* Image du Pokémon */}
         <Card.Img
           variant="top"
           src={sprite}
@@ -61,8 +76,10 @@ const PokemonCard = ({ pokeC }) => {
             marginTop: '8px',
           }}
         />
+        {/* Corps de la carte : nom du Pokémon */}
         <Card.Body>
           <Card.Title className="text-capitalize">{frenchName}</Card.Title>
+          {/* Statistiques du Pokémon (optionnel, actuellement commenté) */}
           {/* <Card.Text>
             {pokeStats.map((stat) => (
               <div key={stat.stat.name}>

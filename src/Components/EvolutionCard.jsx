@@ -23,7 +23,7 @@ function EvolutionCard({ name }) {
   return (
     <div className="text-center border rounded p-2 bg-light shadow-sm" style={{ minWidth: 120 }}>
       <img src={sprite} alt={frenchName} style={{ height: '96px' }} />
-      <p className="text-capitalize mt-2">{frenchName}</p>
+      <p className="text-capitalize mt-2">{name}</p>
     </div>
   )
 }
